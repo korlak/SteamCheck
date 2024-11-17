@@ -14,8 +14,10 @@ export default function Login() {
     e.preventDefault();
     try {
       const response = await axios.post("http://localhost:3000/auth/login", formData);
+      const { token } = response.data;
+      localStorage.setItem("token", token) 
       console.log("Сервер відповів:", response.data);
-      setResponseData(response.data); 
+      setResponseData(response.data);
       alert("Логін успішний");
     } catch (error) {
       console.error("Помилка при відправці даних:", error);

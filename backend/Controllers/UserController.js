@@ -1,4 +1,4 @@
-import {validationResult} from "express-validator";
+import { validationResult } from "express-validator";
 import bcrypt from "bcrypt";
 import UserModel from "../models/User.js";
 import jwt from "jsonwebtoken";
@@ -26,9 +26,9 @@ export const register = async (req, res) => {
             expiresIn: '30d',
         })
 
-        const {passwordHash, ...userData} = user._doc
+        const { passwordHash, ...userData } = user._doc
 
-        res.json({...userData, token})
+        res.json({ ...userData, token })
     } catch (err) {
         console.log(err);
         res.status(500).json({
@@ -38,9 +38,9 @@ export const register = async (req, res) => {
     }
 }
 
-export const login =  async (req, res) => {
+export const login = async (req, res) => {
     try {
-        const user = await UserModel.findOne({email: req.body.email});
+        const user = await UserModel.findOne({ email: req.body.email });
 
         if (!user) {
             return res.status(404).json({
@@ -61,9 +61,8 @@ export const login =  async (req, res) => {
         }, 'secret123', {
             expiresIn: '30d',
         })
-        const {passwordHash, ...userData} = user._doc
-
-        res.json({...userData, token})
+        const { passwordHash, ...userData } = user._doc
+        res.json({ ...userData, token })
     } catch (err) {
         res.status(500).json({
             message: `Something went wrong`,
@@ -71,7 +70,7 @@ export const login =  async (req, res) => {
     }
 }
 
-export const getMe =  async (req, res) => {
+export const getMe = async (req, res) => {
     try {
         const user = await UserModel.findById(req.userId)
 
@@ -81,13 +80,12 @@ export const getMe =  async (req, res) => {
             })
         }
 
-        const {passwordHash, ...userData} = user._doc
-
+        const { passwordHash, ...userData } = user._doc
         res.json(userData)
     } catch (err) {
         res.status(500).json({
-                message: `Something went wrong`,
-            }
+            message: `Something went wrong`,
+        }
         )
     }
 }

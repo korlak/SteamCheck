@@ -24,7 +24,7 @@ export default function MainPage(){
             <td></td>
           </tr>
           <tr>
-            <td>POST</td>
+            <td>GET</td>
             <td><Link to="/auth/me">/auth/me</Link></td>
             <td>Отримати свої дані користувача</td>
             <td>Token</td>
