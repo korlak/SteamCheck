@@ -22,11 +22,11 @@ const steam = new SteamAPI(steamAPIid);
 
 
 const storage = multer.diskStorage({
-    destination: (__, ___, cb) => {
-        cb(null, 'uploads');
+    destination: (req, file, cb) => {
+        cb(null, 'backend/uploads');
     },
-    filename: (__, file, cb) => {
-        cb(null, file.originalname);
+    filename: (req, file, cb) => {
+        cb(null, `${Date.now()}-${file.originalname}`);
     },
 });
 

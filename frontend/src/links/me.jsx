@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 
 export default function Me() {
     const [data, setData] = useState(null);
+    const [responseData, setResponseData] = useState(null);
 
     useEffect(() => {
         const token = localStorage.getItem('token');
@@ -18,6 +19,7 @@ export default function Me() {
                     if (!res.ok) {
                         throw new Error('Failed to fetch user data');
                     }
+                    setResponseData(token)
                     return res.json();
                 })
                 .then((res) => setData(res))
@@ -30,7 +32,7 @@ export default function Me() {
         }
     }, []);
     return (
-        <div>
+        <div className='content'>
             {data ? (
                 <div>
                     <h1>Інформація про користувача</h1>
@@ -40,6 +42,12 @@ export default function Me() {
                 </div>
             ) : (
                 'Завантаження...'
+            )}
+            {responseData && (
+                <div>
+                    <h2>Token</h2>
+                    <pre>{JSON.stringify(responseData, null, 2)}</pre>
+                </div>
             )}
         </div>
     )
