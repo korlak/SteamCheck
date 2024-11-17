@@ -6,7 +6,10 @@
 
     padding: 20px;
 }
-
+.content {
+    border: 3px solid black;
+    padding: 5px;
+}
 table {
     border: 2px solid black;
     border-collapse: collapse;
@@ -21,4 +24,13 @@ a{
 td{
     padding: 4px;
     border: 1px solid black;
+}
+form {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+form input{
+    margin: 5px;
 }

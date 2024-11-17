@@ -18,14 +18,6 @@ import MainPage from './links/mainPage'
 
 export default function App() {
 
-  const [data, setData] = useState(null);
-
-  useEffect(() => {
-    fetch('/api')
-      .then(res => res.json())
-      .then(res => setData(res.message));
-  }, []);
-
   return (
     <Router>
       <Routes>
@@ -43,8 +35,6 @@ export default function App() {
        <Route path='/posts/:id' element={ <Patch />}></Route>
        <Route path='/posts/:id' element={ <DeletePost />}></Route>
       </Routes>
-
     </Router>
-
   );
 }
