@@ -34,3 +34,14 @@ form {
 form input{
     margin: 5px;
 }
+.post{
+    border: 1px solid gray;
+    padding: 5px;
+    margin: 5px;
+    display: inline-block;
+
+}
+.post textarea {
+    width: 300px;
+    height: 200px;
+}

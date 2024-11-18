@@ -9,18 +9,14 @@ import {registerValidation, loginValidation, postCreateValidation} from './valli
 import checkAuth from "./utils/checkAuth.js";
 import handleValidationErrors from "./utils/handleValidationErrors.js";
 import {UserController, PostController} from "./Controllers/index.js";
-import PostModel from "./models/Post.js";
 
 const PORT = process.env.PORT || 3001;
-mongoose.connect(mongo
-).then(() => {
+mongoose.connect(mongo).then(() => {
     console.log('MongoDB Connected')
 }).catch(err => console.log('DB error', err));
 
 const app = express();
 const steam = new SteamAPI(steamAPIid);
-
-
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null, 'backend/uploads');
@@ -39,22 +35,11 @@ app.use('/uploads', express.static('uploads'));
 app.post('/auth/login', loginValidation, handleValidationErrors, UserController.login);
 app.post('/auth/register', registerValidation, handleValidationErrors, UserController.register);
 app.get('/auth/me', checkAuth, UserController.getMe);
-
-app.post('/upload', checkAuth, upload.single('image'), (req, res) => {
-    res.json({
-        url: `/uploads/${req.file.originalname}`,
-    });
-});
-
-app.get('/posts', checkAuth, PostController.getAll)
-app.get('/posts/:id', checkAuth, PostController.getOne)
-app.post('/posts', checkAuth, postCreateValidation, postCreateValidation, PostController.create)
-app.delete('/posts/:id', checkAuth, PostController.remove)
-app.patch('/posts/:id', checkAuth, postCreateValidation, PostController.update)
-app.get("/test", async (req, res) => {
-    res.json({message: "Server Work"})
-})
-const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+app.get('/posts/getAll', checkAuth, PostController.getAll)
+app.get('/posts/getOne/:id', checkAuth, PostController.getOne)
+app.post('/posts/create', checkAuth, postCreateValidation, postCreateValidation, PostController.create)
+app.delete('/posts/delete:id', checkAuth, PostController.remove)
+app.patch('/posts/patch/:id', checkAuth, postCreateValidation, PostController.update)
 
 app.get("/steam/userGames", async (req, res) => {
     try {
@@ -90,6 +75,14 @@ app.get("/steam/userGameAchievements/:userId/:gameId", async (req, res) => {
         });
     }
 });
+app.post('/upload', checkAuth, upload.single('image'), (req, res) => {
+    res.json({
+        url: `/uploads/${req.file.originalname}`,
+    });
+});
+app.get("/test", async (req, res) => {
+    res.json({message: "Server Work"})
+})
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
 
 

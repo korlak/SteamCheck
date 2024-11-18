@@ -26,14 +26,14 @@ export default function App() {
        <Route path='/auth/register' element={ <Register />}></Route>
        <Route path='/auth/me' element={ <Me />}></Route>
        <Route path='/upload' element={ <Upload />}></Route>
-       <Route path='/posts' element={ <CreatePost />}></Route>
-       <Route path='/posts' element={ <GetAllPosts />}></Route>
-       <Route path='/posts/:id' element={ <GetOnePost />}></Route>
+       <Route path='/posts/create' element={ <CreatePost />}></Route>
+       <Route path='/posts/getAll' element={ <GetAllPosts />}></Route>
+       <Route path='/posts/getOne/:id' element={ <GetOnePost />}></Route>
        <Route path='/test' element={ <Test />}></Route>
        <Route path='/steam/userGames' element={ <GetUserGames />}></Route>
        <Route path='/steam/userGameAchievements/:userId/:gameId' element={ <GetUserAchievement />}></Route>
-       <Route path='/posts/:id' element={ <Patch />}></Route>
-       <Route path='/posts/:id' element={ <DeletePost />}></Route>
+       <Route path='/posts/patch/:id' element={ <Patch />}></Route>
+       <Route path='/posts/delete/:id' element={ <DeletePost />}></Route>
       </Routes>
     </Router>
   );

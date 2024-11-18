@@ -37,19 +37,19 @@ export default function MainPage(){
           </tr>
           <tr>
             <td>POST</td>
-            <td><Link to="/posts">/posts</Link></td>
+            <td><Link to="/posts/create">/posts/create</Link></td>
             <td>Створити пост</td>
             <td>Token</td>
           </tr>
           <tr>
             <td>GET</td>
-            <td><Link to="/posts">/posts</Link></td>
+            <td><Link to="/posts/getAll">/posts/getAll</Link></td>
             <td>Отримати всі пости</td>
             <td>Token</td>
           </tr>
           <tr>
             <td>GET</td>
-            <td><Link to="/posts/:id">/posts/:id</Link></td>
+            <td><Link to="/posts/getOne/:id">/posts/getOne/:id</Link></td>
             <td>Отримати один пост</td>
             <td>Token</td>
           </tr>
@@ -74,13 +74,13 @@ export default function MainPage(){
 
           <tr>
             <td>DELETE</td>
-            <td><Link to="/posts/:id">/posts/:id</Link></td>
+            <td><Link to="/posts/delete/:id">/posts/delete/:id</Link></td>
             <td>Видалити пост</td>
             <td>Token</td>
           </tr>
           <tr>
             <td>PATCH</td>
-            <td><Link to="/posts/:id">/posts/:id</Link></td>
+            <td><Link to="/posts/patch/:id">/posts/patch/:id</Link></td>
             <td>Редагувати пост</td>
             <td>Token</td>
           </tr>
