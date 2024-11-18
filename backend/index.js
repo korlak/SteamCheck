@@ -51,8 +51,8 @@ app.get('/posts/:id', checkAuth, PostController.getOne)
 app.post('/posts', checkAuth, postCreateValidation, postCreateValidation, PostController.create)
 app.delete('/posts/:id', checkAuth, PostController.remove)
 app.patch('/posts/:id', checkAuth, postCreateValidation, PostController.update)
-app.get("/api", async (req, res) => {
-    res.json({message: "Work"})
+app.get("/test", async (req, res) => {
+    res.json({message: "Server Work"})
 })
 const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 

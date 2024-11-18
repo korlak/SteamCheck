@@ -55,7 +55,7 @@ export default function MainPage(){
           </tr>
           <tr>
             <td>GET</td>
-            <td><Link to="/api">/api</Link></td>
+            <td><Link to="/test">/test</Link></td>
             <td>Тестова сторінка</td>
             <td></td>
           </tr>
