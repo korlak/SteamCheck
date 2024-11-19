@@ -28,7 +28,7 @@ export default function App() {
        <Route path='/upload' element={ <Upload />}></Route>
        <Route path='/posts/create' element={ <CreatePost />}></Route>
        <Route path='/posts/getAll' element={ <GetAllPosts />}></Route>
-       <Route path='/posts/getOne/:id' element={ <GetOnePost />}></Route>
+       <Route path='/posts/getOne/' element={ <GetOnePost />}></Route>
        <Route path='/test' element={ <Test />}></Route>
        <Route path='/steam/userGames' element={ <GetUserGames />}></Route>
        <Route path='/steam/userGameAchievements/:userId/:gameId' element={ <GetUserAchievement />}></Route>

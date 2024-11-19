@@ -49,7 +49,7 @@ export default function MainPage(){
           </tr>
           <tr>
             <td>GET</td>
-            <td><Link to="/posts/getOne/:id">/posts/getOne/:id</Link></td>
+            <td><Link to="/posts/getOne/">/posts/getOne/:id</Link></td>
             <td>Отримати один пост</td>
             <td>Token</td>
           </tr>
