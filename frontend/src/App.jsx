@@ -31,7 +31,7 @@ export default function App() {
        <Route path='/posts/getOne/' element={ <GetOnePost />}></Route>
        <Route path='/test' element={ <Test />}></Route>
        <Route path='/steam/userGames' element={ <GetUserGames />}></Route>
-       <Route path='/steam/userGameAchievements/:userId/:gameId' element={ <GetUserAchievement />}></Route>
+       <Route path='/steam/userGameAchievements' element={ <GetUserAchievement />}></Route>
        <Route path='/posts/patch/:id' element={ <Patch />}></Route>
        <Route path='/posts/delete/:id' element={ <DeletePost />}></Route>
       </Routes>

@@ -67,7 +67,7 @@ export default function MainPage(){
           </tr>
           <tr>
             <td>GET</td>
-            <td><Link to="/steam/userGameAchievements/:userId/:gameId">/steam/userGameAchievements/:userId/:gameId</Link></td>
+            <td><Link to="/steam/userGameAchievements">/steam/userGameAchievements</Link></td>
             <td>Отримати дані користувача про досягнення до гри</td>
             <td></td>
           </tr>
