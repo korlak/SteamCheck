@@ -11,12 +11,12 @@ import handleValidationErrors from "./utils/handleValidationErrors.js";
 import { UserController, PostController } from "./Controllers/index.js";
 
 const PORT = process.env.PORT || 3001;
-mongoose.connect(mongo).then(() => {
+mongoose.connect(mongo).then(() => {process.env.mongoEnv
     console.log('MongoDB Connected')
 }).catch(err => console.log('DB error', err));
 
 const app = express();
-const steam = new SteamAPI(steamAPIid);
+const steam = new SteamAPI(process.env.SteamAPIenv);
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null, 'backend/uploads');
@@ -76,6 +76,7 @@ app.get("/steam/userGameAchievements/:userId/:gameId", async (req, res) => {
         });
     }
 });
+
 app.post('/upload', checkAuth, upload.single('image'), (req, res) => {
     res.json({
         url: `/uploads/${req.file.originalname}`,
