@@ -4,6 +4,8 @@ import multer from 'multer';
 import SteamAPI from 'steamapi';
 import cors from 'cors';
 import { mongo, steamAPIid } from './config/config.js'
+import dotenv from "dotenv";
+dotenv.config()
 
 import { registerValidation, loginValidation, postCreateValidation } from './vallidations.js'
 import checkAuth from "./utils/checkAuth.js";
@@ -11,7 +13,7 @@ import handleValidationErrors from "./utils/handleValidationErrors.js";
 import { UserController, PostController } from "./Controllers/index.js";
 
 const PORT = process.env.PORT || 3001;
-mongoose.connect(mongo).then(() => {process.env.mongoEnv
+mongoose.connect(process.env.mongoEnv).then(() => {
     console.log('MongoDB Connected')
 }).catch(err => console.log('DB error', err));
 
@@ -83,8 +85,10 @@ app.post('/upload', checkAuth, upload.single('image'), (req, res) => {
     });
 });
 app.get("/test", async (req, res) => {
+    console.log(process.env.steamAPIenv)
     res.json({ message: "Server Work" })
 })
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
+
 
 
