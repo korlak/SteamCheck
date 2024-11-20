@@ -15,6 +15,7 @@ export default function PatchPost() {
         setFormData((prev) => ({ ...prev, [name]: value }));
     };
 
+    // Надсилання запиту
     const handleUpdate = async (e) => {
         e.preventDefault();
         const token = localStorage.getItem("token");

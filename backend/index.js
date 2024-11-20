@@ -41,9 +41,9 @@ app.post('/posts/create', checkAuth, postCreateValidation, PostController.create
 app.delete('/posts/delete/:id', checkAuth, PostController.remove)
 app.patch('/posts/patch/:id', checkAuth, postCreateValidation, PostController.update)
 
-app.get("/steam/userGames", async (req, res) => {
+app.get("/steam/userGames/:id", async (req, res) => {
     try {
-        const summary = await steam.getUserOwnedGames("76561198951455714",
+        const summary = await steam.getUserOwnedGames(req.params.id,
             { includeExtendedAppInfo: true }
         );
         res.json({ message: summary });
