@@ -15,7 +15,7 @@ export const create = async (req, res) => {
     } catch (err) {
         console.log(err)
         return res.status(500).json({
-            message: `Something went wrong`,
+            message: `Something went wrong1`,
         })
     }
 }
