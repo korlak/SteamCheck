@@ -38,7 +38,7 @@ app.get('/auth/me', checkAuth, UserController.getMe);
 app.get('/posts/getAll', checkAuth, PostController.getAll)
 app.get('/posts/getOne/:id', checkAuth, PostController.getOne)
 app.post('/posts/create', checkAuth, postCreateValidation, PostController.create)
-app.delete('/posts/delete:id', checkAuth, PostController.remove)
+app.delete('/posts/delete/:id', checkAuth, PostController.remove)
 app.patch('/posts/patch/:id', checkAuth, postCreateValidation, PostController.update)
 
 app.get("/steam/userGames", async (req, res) => {
