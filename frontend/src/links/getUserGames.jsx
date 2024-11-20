@@ -16,7 +16,7 @@ export default function GetUserGames() {
         const result = await response.json();
         setTrophy(prevTrophies => ({
             ...prevTrophies,
-            [id]: result.message
+            [id]: result
         }));
     };
 
@@ -42,7 +42,12 @@ export default function GetUserGames() {
                             </td>
                             <td>
                                 {trophy[game.game.id] && (
-                                    <div>{trophy[game.game.id]}</div>
+                                    <div>
+                                        {trophy[game.game.id]?.completed?.unlockedCount}
+                                        /
+                                        {trophy[game.game.id]?.fullAmount?.achvAmount}
+                                    
+                                    </div>
                                 )}
                             </td>
                             <td>
