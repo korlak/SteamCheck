@@ -1,2 +1,4 @@
 
 backend/config/config.js
+.env
+.env.tst
